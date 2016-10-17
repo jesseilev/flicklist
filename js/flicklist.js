@@ -1,14 +1,14 @@
 
 
 var model = {
-  watchlistItems: [],
-  browseItems: []
+	watchlistItems: [],
+	browseItems: []
 }
 
 
 var api = {
-  root: "https://api.themoviedb.org/3",
-  token: "8e888fa39ec243e662e1fb738c42ae99" // TODO 0 (DONE) put your api key here
+	root: "https://api.themoviedb.org/3",
+	token: "8e888fa39ec243e662e1fb738c42ae99" // TODO 0 (DONE) put your api key here
 }
 
 
@@ -36,7 +36,7 @@ function discoverMovies(callback) {
 			callback();
 		}
 	});
-  
+	
 }
 
 
@@ -45,20 +45,20 @@ function discoverMovies(callback) {
  */
 function render() {
 
-  // TODO 7 (DONE)
-  // clear everything from both lists
-  $("#section-watchlist ul").empty();
-  $("#section-browse ul").empty();
-  
-  // TODO 6 (DONE)
-  // for each movie on the user's watchlist, insert a list item into the <ul> in the watchlist section
-  model.watchlistItems.forEach(function(movie) {
-  	var itemView = $("<li></li>").text(movie.original_title);
-  	$("#section-watchlist ul").append(itemView);
-  });
-  
-  // for each movie on the current browse list, 
-  model.browseItems.forEach(function(movie) {
+	// TODO 7 (DONE)
+	// clear everything from both lists
+	$("#section-watchlist ul").empty();
+	$("#section-browse ul").empty();
+	
+	// TODO 6 (DONE)
+	// for each movie on the user's watchlist, insert a list item into the <ul> in the watchlist section
+	model.watchlistItems.forEach(function(movie) {
+	var itemView = $("<li></li>").text(movie.original_title);
+	$("#section-watchlist ul").append(itemView);
+	});
+	
+	// for each movie on the current browse list, 
+	model.browseItems.forEach(function(movie) {
 		// TODO 3 (DONE)
 		// insert a list item into the <ul> in the browse section
 		var title = $("<p></p>").text(movie.original_title);
@@ -75,14 +75,14 @@ function render() {
 		});
 		itemView.append(button);
 		
-  });
-  
+	});
+	
 }
 
 
 // When the HTML document is ready, we call the discoverMovies function,
 // and pass the render function as its callback
 $(document).ready(function() {
-  discoverMovies(render);
+	discoverMovies(render);
 });
 
